@@ -18,13 +18,17 @@ html, body{
     src: local('Mistral'), url('MISTRAL.woff') format('woff');
     }
 
+@font-face {
+    font-family: ANR;
+    src: url(ANR.ttf);   
+}
+
 header{
     display: flex;
     justify-content: center;
     align-items: center;
     height: 200px;
     background-color: #fbf2f3;
-    /* margin-top: 15px; */
 }
 
 nav{
@@ -33,7 +37,6 @@ nav{
     align-items: center;
     background-color: #a06e7e;
     height: 50px;
-    /* margin-top: 15px; */
 }
 
 nav ul li {
@@ -46,25 +49,20 @@ nav ul li a {
     text-decoration: none;
     margin: 4px;
     padding: 4px;
-    border-radius: 4px;
+    border-radius: 1px;
 }
 
-#meethi img{
+header img{
     text-align: center;
     width: 150px;
     height: 150px;
     display: block; /* Ensure the image is a block element */
-    /* border: 4px solid #ffffff; */
+    border: 4px solid #ffffff;
 }
 
 h1 {
-    /* text-shadow: #ff2d2d 0 0 20px; */
-    /* text-shadow: 4px 0 #ff2d2d, -4px 0 #ff2d2d, 0 4px #ff2d2d, 0 -4px #ff2d2d,
-             2px 2px #ff2d2d, -2px -2px #ff2d2d, 2px -2px #ff2d2d, -2px 2px #ff2d2d; */
-    font-family: Mistral;
     position: none;
     text-align: center;
-    font-size: 50px;
     font-weight: bold;
     color: #a06e7e;
     margin-bottom: 10px;
@@ -75,17 +73,6 @@ h1 {
     background-color: #a06e7e;
 }
 
-h3{
-    font-family: Mistral;
-    font-size: 30px;
-    color: #fbf2f3;
-    background-color: #a06e7e;
-    text-align: center;
-    margin-bottom: 0px;
-    margin-top: 0px;
-    /* margin-left: 50px; */
-    padding: 10px;
-}
 
 /* main */
 main{
@@ -93,117 +80,48 @@ main{
 }
 
 main img{
-    width: 300px;
-    height: 300px;
+    width: 60px;
+    height: 80px;
+    border-radius: 50%;
 }
 
-/* Top three tiles container styling */
-.top-three-tiles {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-/* First three tiles styling */
-.top-three-tiles section {
-    /* background-color: #292929; */
+#poetry{
+    background-color: #fbf2f3;
+    color: #a06e7e;
+    padding: 10px;
+    margin: 10px;
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    padding: 30px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    flex: 1;
 }
-
-.top-three-tiles section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+#poetry h2{
+    color: #a06e7e;
 }
-
-div #ee{
-    background-color: #002c0b;
-}
-
-#ee img{
-    border-radius: 50%;
-}
-
-div #GaneshJi{
-    background-color: #022917;
-}
-#GaneshJi img{
-    border-radius: 50%;
-}
-
-div #two{
-    background-color: #054219;
-}
-#two img{
-    border-radius: 50%;
-}
-
-/* Last three tiles container styling */
-.last-three-tiles {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-}
-
-/* Adjusted styles for the last three tiles */
-.last-three-tiles section {
-    /* background-color: #292929; */
+#pOne{
+    background-color: #a06e7e;
+    color: #fbf2f3;
+    padding: 10px;
+    margin: 10px;
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    padding: 30px;
-    transition: transform 0.2s, box-shadow 0.2s;
 }
-
-.last-three-tiles section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+#signup{
+    text-align: center;
+    background-color: #a06e7e;
+    color: #fbf2f3;
+    padding: 10px;
 }
-
-.last-three-tiles section h2 {
-    color: #f0f0f0;
-    margin-bottom: 15px;
-    font-size: 24px;
-}
-
-.last-three-tiles section a {
-    color: #3f51b5;
-    text-decoration: none;
-    display: block;
-    margin-bottom: 15px;
-    transition: color 0.3s;
-}
-
-.last-three-tiles section a:hover {
-    color: #64b5f6;
-}
-
-div #four{
-    background-color: #031d12;
-}
-#four img{
-    border: 2px solid white;
-    border-radius: 50%;
-}
-
-div #warriors{
-    background-color: #00241a;
-}
-#warriors img{
-    border-radius: 50%;
-}
-
-div #designer{
-    background-color: #faf4de;
+#signup a{
+    color: #fbf2f3;
 }
 
 /* footer */
-
 footer{
-    color: white;
+    background-color: #a06e7e;
+    color: #fbf2f3;
     text-align: center;
-    background-color: #00241a;
-    height: 100px;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+footer a{
+    color: #fbf2f3;
 }

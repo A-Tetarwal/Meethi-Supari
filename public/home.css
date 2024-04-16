@@ -59,6 +59,9 @@ header nav ul li a:hover{
     display: flex;
     justify-content: center;
 }
+#signup a{
+    animation: blink 1s ease-in-out 0.5s infinite;
+}
 #signup a:hover{
     text-decoration: none;
 }

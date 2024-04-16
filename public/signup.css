@@ -26,7 +26,9 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 70px rgba(238, 249, 255, 0.45);
+    /* box-shadow: 0 0 70px rgba(238, 249, 255, 0.45); */
+    border-radius: 4px;
+    /* border: 2px solid rgb(70, 63, 50); */
 }
 #container h2{
     margin: 20px;

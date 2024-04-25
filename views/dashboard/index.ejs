@@ -3,56 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meethi Supari | Home</title>
-    <link rel="stylesheet" href="index.css">
+    <title>Meethi Supari | Dashboard </title>
+    <link rel="stylesheet" href="indexxx.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="header">
-        <img src="poetryypage.png" alt="Meethi Supari">
+        <img src="ms-dashboard.png" alt="Meethi Supari">
         <header>
-            <h1>मीठी सुपारी </h1>
-            <h1 id="h1">Meethi Supari</h1>
+            <h1 style="color: orangered;">मीठी सुपारी </h1>
+            <h1 id="h1" style="color: rgb(21, 162, 219);">Meethi Supari</h1>
             <nav>
                 <ul>
                     <li><a href="diary" id="a1">Diary</a></li>
                     <li><a href="poems" id="a2">Poetry</a></li>
                 </ul>
             </nav>
-            <form action="/index/search">
-                <input type="search" name="searchTerm" id="search" placeholder="search poetry/diary">
-            </form>
         </header>
     </div>
+    <div id="hello">
+        <h1>Hey, <%=userName %></h1>
+    </div>
     <div id="signup">
-        Want to publish your writtings?<a href="login">login</a>/<a href="signup">sign up</a>
+        <form action="/index/search">
+            <input type="search" name="searchTerm" id="search" placeholder="search poetry/diary">
+        </form>
+        <a href="/">Logout</a>
     </div>
 
-
-    <!-- <main>
-        <div id="poetry">
-            <table>
-                <tr>
-                    <td>
-                        <img src="Ashish.jpg" alt="Ashish Tetarwal">
-                    </td>
-                    <td>
-                        <h2> Ashish Tetarwal</h2>
-                    </td>
-            </table>
-            <div class="partone">
-                <section id="pOne">
-                    <h3>Main leke ghoom raha hoon</h3>
-                </section>
-            </div>
-        </div>
-
-    </main>    -->
     
-    <footer>
+    <!-- <footer>
         <h4>By <a href="https://a-tetarwal.github.io/Portfolio---Ashish-Tetarwal/">Ashish Tetarwal</a></h4>
-    </footer>
+    </footer> -->
 </body>
 </html>

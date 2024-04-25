@@ -2,21 +2,25 @@ const express = require("express");
 const router = express.Router();
 const session = require("express-session");
 const passport = require("passport");
-const User = require("../../models/user");
-const GoogleAuth = require("../../models/googleAuth"); 
+const google_user = require("../../models/google_user");
+const MongoStore = require("connect-mongo");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 // Add express-session middleware
-router.use(session({
-    secret: 'keyboard cat',
+router.use(
+  session({
+    secret: "keyboard cat",
     resave: false,
-    saveUninitialized: false
-  }));
-  
-  // Initialize passport middleware
-  router.use(passport.initialize());
-  router.use(passport.session());
-  
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGODB_URI,
+    }),
+  })
+);
+
+// Initialize passport middleware
+router.use(passport.initialize());
+router.use(passport.session());
 
 passport.use(
   new GoogleStrategy(
@@ -35,12 +39,12 @@ passport.use(
       };
 
       try {
-        let user = await GoogleAuth.findOne({ googleId: profile.id });
+        let user = await google_user.findOne({ googleId: profile.id });
 
         if (user) {
           done(null, user);
         } else {
-          user = await GoogleAuth.create(newUser);
+          user = await google_user.create(newUser);
           done(null, user);
         }
       } catch (error) {
@@ -50,7 +54,6 @@ passport.use(
     }
   )
 );
-
 
 // Google login route
 router.get(
@@ -72,24 +75,31 @@ router.get("/login-failure", (req, res) => {
   res.send("something went wrong");
 });
 
+// Destroy User session
+router.get("/logout", (req, res) => {
+  req.session.destroy((error) => {
+    if (error) {
+      console.log(error);
+      res.send("Error loggin out");
+    } else {
+      res.redirect("/");
+    }
+  });
+});
+
 // persist user data from authentication
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 
 // retrieve
-// passport.deserializeUser((id, done) => {
-//   GoogleAuth.findById(id, function (err, user) {
-//     done(err, user);
-//   });
-// });
 passport.deserializeUser(async (id, done) => {
-    try {
-      const user = await GoogleAuth.findById(id);
-      done(null, user);
-    } catch (error) {
-      done(error, null);
-    }
-  });
-  
+  try {
+    const user = await google_user.findById(id).exec();
+    done(null, user);
+  } catch (error) {
+    done(error, null);
+  }
+});
+
 module.exports = router;

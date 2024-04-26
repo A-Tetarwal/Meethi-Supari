@@ -3,7 +3,7 @@
     padding: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgba(255, 255, 238, 0.949);
-    background-color: #140814;
+    background-color: #1b0f25;
 }
 
 html, body{
@@ -23,8 +23,8 @@ html, body{
 }
 #header img{
     margin-top: 10px;
-    width: 30vw;
-    height: 30vw;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
 }
 header{
@@ -60,33 +60,6 @@ header nav ul li a:hover{
     text-decoration: none;
 }
 
-#hey{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    flex-wrap: wrap;
-}
-#hey button{
-    background-color: orangered;
-    padding: 10px;
-    border-radius: 20px;
-    color: white;
-    border: none;
-    scale: 0.9;
-    font-size: 13px;
-    margin: 4px;
-}
-#hey button:hover{
-    box-shadow: 0 0 30px rgba(255, 69, 0, 0.9);
-}
-
-/* card */
-.card {
-	width: 100%;
-	height: 100%;
-	position: relative;
-}
 
 /* signup */
 #signup{
@@ -107,10 +80,12 @@ header nav ul li a:hover{
     font-size: 13px;
 }
 #signup a:hover{
-    background-color: orangered;
+    background-color: rgb(21, 162, 219);
     text-decoration: none;
 }
-
+#signup a:click{
+    background-color: orangered;
+}
 
   #search{
     /* margin-top: 10px; */
@@ -132,14 +107,7 @@ header nav ul li a:hover{
   input[type="search"]::placeholder {
     color: white;
   }
-
-#poetry-section{
-    display: flex;
-    justify-content: center;
-    /* margin-top: 50px; */
-    flex-wrap: wrap;
-}
-
+  
 
 /* footer */
 /* footer{
@@ -194,4 +162,37 @@ footer h4{
 @font-face {
     font-family: ANR;
     src: url(ANR.ttf);   
+}
+
+/* modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.modal-content button {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #d32f2f;
 }

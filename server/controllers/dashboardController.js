@@ -1,3 +1,4 @@
+const e = require("express");
 const poetry = require("../../models/poetry.js");
 const User = require("../../models/user.js");
 const mongoose = require("mongoose");
@@ -19,7 +20,7 @@ exports.dashboard = async (req, res) => {
             { $match: { user: new mongoose.Types.ObjectId(req.user.id) } },
             {
                 $project: {
-                    tittle: { $substr: ["$tittle", 0, 30] },
+                    tittle: { $substr: ["$title", 0, 30] },
                     body: { $substr: ["$body", 0, 100] },
                 },
             },
@@ -98,7 +99,6 @@ exports.dashboardUpdateNote = async (req, res) => {
 // Delete note
 exports.dashboardDeleteNote = async (req, res) => {
     try {
-        
         await poetry.deleteOne({ _id: req.params.id }).where({user: req.user.id});
         res.redirect("/dashboard");
     } catch (error) {
@@ -120,6 +120,49 @@ exports.dashboardAddNoteSubmit = async(req, res) => {
     try {
         req.body.user = req.user.id;
         await poetry.create(req.body);
+        res.redirect("/dashboard");
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error");
+    }
+}
+
+// get / search
+exports.dashboardSearch = async (req, res) => {
+    try {
+        res.render("./dashboard/search", {
+            searchResults: ""
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send("Internal Server Error");
+    }
+};
+
+// post search for notes
+exports.dashboardSearchSubmit = async (req, res) => {
+    try {
+        let searchTerm = req.body.searchTerm;
+        const searchNoSpecialChars = searchTerm.replace(/[^a-zA-Z0-9]/g, " ");
+
+        const searchResults = await poetry.find({
+            $or: [
+                { title: { $regex: new RegExp(searchNoSpecialChars, "i") } },
+                { body: { $regex: new RegExp(searchNoSpecialChars, "i") } }
+            ]
+        }).where({ user: req.user.id });
+
+        // Render dropdown instead of a separate page
+        res.render("./dashboard/index.ejs", {
+            userName: req.user.firstName,
+            notes: searchResults, // Pass search results to the notes variable
+            locals: {
+                title: "Dashboard",
+                description: "Meethi Supari"
+            },
+            current: 1, // Reset pagination to the first page
+            pages: 1, // Since it's a dropdown, there's only one page
+        });
     } catch (error) {
         console.error(error);
         res.status(500).send("Internal Server Error");

@@ -3,7 +3,7 @@
     padding: 0;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgba(255, 255, 238, 0.949);
-    background-color: #140814;
+    background-color: black;
 }
 
 html, body{
@@ -68,7 +68,7 @@ header nav ul li a:hover{
     flex-wrap: wrap;
 }
 #hey button{
-    background-color: orangered;
+    background-color: rgb(255, 0, 166);
     padding: 10px;
     border-radius: 20px;
     color: white;
@@ -76,9 +76,10 @@ header nav ul li a:hover{
     scale: 0.9;
     font-size: 13px;
     margin: 4px;
+    cursor: pointer;
 }
 #hey button:hover{
-    box-shadow: 0 0 30px rgba(255, 69, 0, 0.9);
+    /* box-shadow: 0 0 30px rgb(255, 0, 166); */
 }
 
 /* card */
@@ -99,7 +100,7 @@ header nav ul li a:hover{
 #signup a{
     text-decoration: none;
     /* margin-top: 10px; */
-    background-color: orangered;
+    background-color: rgb(255, 0, 166);
     padding: 7px;
     /* border: 1.5px solid white; */
     border-radius: 20px;
@@ -107,7 +108,7 @@ header nav ul li a:hover{
     font-size: 13px;
 }
 #signup a:hover{
-    background-color: orangered;
+    background-color: rgb(255, 0, 166);
     text-decoration: none;
 }
 
@@ -139,7 +140,35 @@ header nav ul li a:hover{
     /* margin-top: 50px; */
     flex-wrap: wrap;
 }
-
+#poetry-section ul{
+    margin: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#poetry-section li{
+    list-style-type: none;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: rgb(255, 0, 166);
+    width: 10vw;
+    height: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* box-shadow: 0 0 30px rgb(255, 0, 166); */
+    overflow: hidden;
+}
+#poetry-section li h3{
+    background-color: rgb(255, 0, 166);
+    color: white;
+}
+#poetry-section li a{
+    text-decoration: none;
+    color: white;
+}
 
 /* footer */
 /* footer{
@@ -159,7 +188,7 @@ footer h4{
 /* blink animation */
 @keyframes blink {
     0%{color: yellow;}
-    50%{color: orangered;}
+    50%{color: rgb(255, 0, 166);}
     100%{color:  rgb(21, 162, 219);}
 }
 
